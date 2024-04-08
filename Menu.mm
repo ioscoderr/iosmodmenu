@@ -1,5 +1,6 @@
 #import "Menu.h"
 
+
 @interface Menu ()
 
 
@@ -70,24 +71,25 @@
         CGFloat contentWidth = frame.size.width - (scrollViewInset * 2);
         CGFloat yOffset = 0;
         CGFloat leftPadding = 0;
-        NSArray *items = @[@"AIMBOT", ];
-  
+        NSString *itemText = @"AIMBOT";
 
 
-        for (NSString *itemText in items) {
-            UILabel *itemLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, yOffset, contentWidth - 60 - padding - (leftPadding+50), itemHeight)];
-            itemLabel.textColor = [UIColor whiteColor];
-            itemLabel.textAlignment = NSTextAlignmentLeft;
-            itemLabel.font = [UIFont systemFontOfSize:15.0];
-            itemLabel.text = itemText;
-            [self.scrollView addSubview:itemLabel];
 
-            UISwitch *itemSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(contentWidth - 60, yOffset + (itemHeight - 31) / 2, 0, 0)];
-            [itemSwitch setOnTintColor:[UIColor whiteColor]];
-            [self.scrollView addSubview:itemSwitch];
+        UILabel *itemLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, yOffset, contentWidth - 60 - padding - (leftPadding+50), itemHeight)];
+        itemLabel.textColor = [UIColor whiteColor];
+        itemLabel.textAlignment = NSTextAlignmentLeft;
+        itemLabel.font = [UIFont systemFontOfSize:15.0];
+        itemLabel.text = itemText;
+        [self.scrollView addSubview:itemLabel];
 
-            yOffset += itemHeight;
-        }
+        UISwitch *itemSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(contentWidth - 60, yOffset + (itemHeight - 31) / 2, 0, 0)];
+        [itemSwitch addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
+
+        [itemSwitch setOnTintColor:[UIColor whiteColor]];
+        [self.scrollView addSubview:itemSwitch];
+
+        yOffset += itemHeight;
+
 
         CGFloat totalContentHeight = yOffset - CGRectGetHeight(self.footerView.frame);
         self.scrollView.contentSize = CGSizeMake(contentWidth, totalContentHeight);
@@ -116,24 +118,22 @@
         CGFloat contentWidth1 = frame.size.width - (scrollViewInset1 * 2);
         CGFloat yOffset1 = 0;
         CGFloat leftPadding1 = 0;
-        NSArray *items1 = @[@"ESP LINE", @"ESP BOX", @"ESP HEALTH", ];
+        NSString *itemText1 = @"ESP box";
 
 
 
-        for (NSString *itemText1 in items1) {
-            UILabel *itemLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding1, yOffset1, contentWidth1 - 60 - padding1 - (leftPadding1+50), itemHeight1)];
-            itemLabel1.textColor = [UIColor whiteColor];
-            itemLabel1.textAlignment = NSTextAlignmentLeft;
-            itemLabel1.font = [UIFont systemFontOfSize:15.0];
-            itemLabel1.text = itemText1;
-            [self.scrollView1 addSubview:itemLabel1];
+        UILabel *itemLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding1, yOffset1, contentWidth1 - 60 - padding1 - (leftPadding1+50), itemHeight1)];
+        itemLabel1.textColor = [UIColor whiteColor];
+        itemLabel1.textAlignment = NSTextAlignmentLeft;
+        itemLabel1.font = [UIFont systemFontOfSize:15.0];
+        itemLabel1.text = itemText1;
+        [self.scrollView1 addSubview:itemLabel1];
 
-            UISwitch *itemSwitch1 = [[UISwitch alloc] initWithFrame:CGRectMake(contentWidth1 - 60, yOffset1 + (itemHeight1 - 31) / 2, 0, 0)];
-            [itemSwitch1 setOnTintColor:[UIColor whiteColor]];
-            [self.scrollView1 addSubview:itemSwitch1];
+        UISwitch *itemSwitch1 = [[UISwitch alloc] initWithFrame:CGRectMake(contentWidth1 - 60, yOffset1 + (itemHeight1 - 31) / 2, 0, 0)];
+        [itemSwitch1 setOnTintColor:[UIColor whiteColor]];
+        [self.scrollView1 addSubview:itemSwitch1];
 
-            yOffset1 += itemHeight1;
-        }
+        yOffset1 += itemHeight1;
 
         CGFloat totalContentHeight1 = yOffset1 - CGRectGetHeight(self.footerView.frame);
         self.scrollView1.contentSize = CGSizeMake(contentWidth1, totalContentHeight1);
@@ -158,29 +158,30 @@
         CGFloat contentWidth2 = frame.size.width - (scrollViewInset2 * 2);
         CGFloat yOffset2 = 0;
         CGFloat leftPadding2 = 0;
-        NSArray *items2 = @[@"Wallhack", @"Nick Indicator", @"AutoShoot", ];
+        NSString *itemText2 = @"Wallhack";
 
 
 
-        for (NSString *itemText2 in items2) {
-            UILabel *itemLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding2, yOffset2, contentWidth2 - 60 - padding2 - (leftPadding2+50), itemHeight2)];
-            itemLabel2.textColor = [UIColor whiteColor];
-            itemLabel2.textAlignment = NSTextAlignmentLeft;
-            itemLabel2.font = [UIFont systemFontOfSize:15.0];
-            itemLabel2.text = itemText2;
-            [self.scrollView2 addSubview:itemLabel2];
+        UILabel *itemLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding2, yOffset2, contentWidth2 - 60 - padding2 - (leftPadding2+50), itemHeight2)];
+        itemLabel2.textColor = [UIColor whiteColor];
+        itemLabel2.textAlignment = NSTextAlignmentLeft;
+        itemLabel2.font = [UIFont systemFontOfSize:15.0];
+        itemLabel2.text = itemText2;
+        [self.scrollView2 addSubview:itemLabel2];
 
-            UISwitch *itemSwitch2 = [[UISwitch alloc] initWithFrame:CGRectMake(contentWidth2 - 60, yOffset2 + (itemHeight2 - 31) / 2, 0, 0)];
-            [itemSwitch2 setOnTintColor:[UIColor whiteColor]];
-            [self.scrollView2 addSubview:itemSwitch2];
+        UISwitch *itemSwitch2 = [[UISwitch alloc] initWithFrame:CGRectMake(contentWidth2 - 60, yOffset2 + (itemHeight2 - 31) / 2, 0, 0)];
+        [itemSwitch2 setOnTintColor:[UIColor whiteColor]];
+        [self.scrollView2 addSubview:itemSwitch2];
 
-            yOffset2 += itemHeight2;
-        }
+        yOffset2 += itemHeight2;
 
         CGFloat totalContentHeight2 = yOffset2 - CGRectGetHeight(self.footerView.frame);
         self.scrollView2.contentSize = CGSizeMake(contentWidth2, totalContentHeight2);
 
         [self addSubview:self.scrollView2];
+        
+        
+        
         
         
         
@@ -199,24 +200,23 @@
         CGFloat contentWidth3 = frame.size.width - (scrollViewInset3 * 2);
         CGFloat yOffset3 = 0;
         CGFloat leftPadding3 = 0;
-        NSArray *items3 = @[@"OVERLAY", ];
+        NSString *itemText3 = @"OVERLAY";
 
 
 
-        for (NSString *itemText3 in items3) {
-            UILabel *itemLabel3 = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding3, yOffset3, contentWidth3 - 60 - padding3 - (leftPadding3+50), itemHeight3)];
-            itemLabel3.textColor = [UIColor whiteColor];
-            itemLabel3.textAlignment = NSTextAlignmentLeft;
-            itemLabel3.font = [UIFont systemFontOfSize:15.0];
-            itemLabel3.text = itemText3;
-            [self.scrollView3 addSubview:itemLabel3];
+        UILabel *itemLabel3 = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding3, yOffset3, contentWidth3 - 60 - padding3 - (leftPadding3+50), itemHeight3)];
+        itemLabel3.textColor = [UIColor whiteColor];
+        itemLabel3.textAlignment = NSTextAlignmentLeft;
+        itemLabel3.font = [UIFont systemFontOfSize:15.0];
+        itemLabel3.text = itemText3;
+        [self.scrollView3 addSubview:itemLabel3];
 
-            UISwitch *itemSwitch3 = [[UISwitch alloc] initWithFrame:CGRectMake(contentWidth3 - 60, yOffset3 + (itemHeight3 - 31) / 2, 0, 0)];
-            [itemSwitch3 setOnTintColor:[UIColor whiteColor]];
-            [self.scrollView3 addSubview:itemSwitch3];
+        UISwitch *itemSwitch3 = [[UISwitch alloc] initWithFrame:CGRectMake(contentWidth3 - 60, yOffset3 + (itemHeight3 - 31) / 2, 0, 0)];
+        [itemSwitch3 addTarget:self action:@selector(toogleTappedOverlay:) forControlEvents:UIControlEventValueChanged];
+        [itemSwitch3 setOnTintColor:[UIColor whiteColor]];
+        [self.scrollView3 addSubview:itemSwitch3];
 
-            yOffset3 += itemHeight3;
-        }
+        yOffset3 += itemHeight3;
 
         CGFloat totalContentHeight3 = yOffset3 - CGRectGetHeight(self.footerView.frame);
         self.scrollView3.contentSize = CGSizeMake(contentWidth3, totalContentHeight3);
@@ -253,6 +253,8 @@
         UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
         [keyWindow addGestureRecognizer:tapGestureRecognizer];
         [keyWindow addGestureRecognizer:tapGestureRecognizer2];
+
+        
     }
     
     return self;
@@ -298,7 +300,7 @@
         }
     }
 }
-
+ 
 
 - (void)buttonTapped:(UIButton *)sender {
     [self updateButtonAppearance];
@@ -330,8 +332,75 @@
     
 }
 
+- (void)toogleTappedOverlay:(UISwitch *)sender {
+    if (sender.isOn) {
+        [self toggleOverlayOn];
+    } else {
+        [self toggleOverlayOff];
+    }
+}
 
 
+- (void)toggleOverlayOn {
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+
+    
+    for (UIView *subview in keyWindow.subviews) {
+        if ([subview isKindOfClass:[Menu class]]) {
+            [subview removeFromSuperview];
+            break;
+        }
+    }
+    
+    CGRect mainScreenBounds = [UIScreen mainScreen].bounds;
+    
+    CGFloat menuWidth = 350;
+    CGFloat menuHeight = 300;
+    CGFloat menuX = (CGRectGetWidth(mainScreenBounds) - menuWidth) / 2;
+    CGFloat menuY = (CGRectGetHeight(mainScreenBounds) - menuHeight) / 2;
+    Menu *newmenu;
+    newmenu = [[Menu alloc] initWithFrame:CGRectMake(menuX, menuY, menuWidth, menuHeight)];
+    newmenu.titleLabel.text = @"remember me";
+    newmenu.footerLabel.text = @"ios dev";
+    [newmenu.scrollView3.subviews.lastObject setOn:YES animated:NO];
+    newmenu.scrollView3.hidden = NO;
+
+    TextFieldView *textFieldView = [[TextFieldView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    textFieldView.userInteractionEnabled = YES;
+    textFieldView.backgroundColor = [UIColor clearColor];
+    [textFieldView addSubview:newmenu];
+    [keyWindow addSubview:textFieldView];
+    
+    [newmenu showMenu];
+}
+
+
+
+- (void)toggleOverlayOff {
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    for (UIView *subview in keyWindow.subviews) {
+        if ([subview isKindOfClass:[TextFieldView class]]) {
+            [subview removeFromSuperview];
+            break;
+        }
+    }
+    
+    CGRect mainScreenBounds = [UIScreen mainScreen].bounds;
+    
+    CGFloat menuWidth = 350;
+    CGFloat menuHeight = 300;
+    CGFloat menuX = (CGRectGetWidth(mainScreenBounds) - menuWidth) / 2;
+    CGFloat menuY = (CGRectGetHeight(mainScreenBounds) - menuHeight) / 2;
+    Menu *newmenu;
+    newmenu = [[Menu alloc] initWithFrame:CGRectMake(menuX, menuY, menuWidth, menuHeight)];
+    newmenu.titleLabel.text = @"remember me";
+    newmenu.footerLabel.text = @"ios dev";
+    newmenu.scrollView3.hidden = NO;
+
+    [keyWindow addSubview:newmenu];
+
+    [newmenu showMenu];
+
+}
 
 @end
-
