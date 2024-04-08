@@ -1,6 +1,7 @@
 #import "Helper.h"
 #import "Menu.h"
 
+
 Menu *menu;
 
 void setupMenu() {
@@ -17,7 +18,7 @@ void setupMenu() {
 
     UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
     [keyWindow addSubview:menu];
-    
+
 }
 
 static void didFinishLaunching(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef info) {
