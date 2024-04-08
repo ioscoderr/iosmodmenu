@@ -14,7 +14,7 @@
 ### Features:
 * Customizable UI
 * Open Source Menu
-
+* Dynamic overlay view menu etc...
 <br>
 
 ### Installation:
@@ -43,8 +43,46 @@ menu = [[Menu alloc] initWithFrame:CGRectMake(menuX, menuY, menuWidth, menuHeigh
 
 <b> Add toggle: </b>
 ```obj-c
-        NSArray *items = @[@"AIMBOT", @"etc"];
+CGFloat itemHeight3 = 40;
+CGFloat padding3 = 10;
+CGFloat contentWidth3 = frame.size.width - (scrollViewInset3 * 2);
+CGFloat yOffset3 = 0;
+CGFloat leftPadding3 = 0;
+NSString *itemText3 = @"OVERLAY";
 
+
+
+UILabel *itemLabel3 = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding3, yOffset3, contentWidth3 - 60 - padding3 - (leftPadding3+50), itemHeight3)];
+itemLabel3.textColor = [UIColor whiteColor];
+itemLabel3.textAlignment = NSTextAlignmentLeft;
+itemLabel3.font = [UIFont systemFontOfSize:15.0];
+itemLabel3.text = itemText3;
+[self.scrollView3 addSubview:itemLabel3];
+
+UISwitch *itemSwitch3 = [[UISwitch alloc] initWithFrame:CGRectMake(contentWidth3 - 60, yOffset3 + (itemHeight3 - 31) / 2, 0, 0)];
+[itemSwitch3 addTarget:self action:@selector(toogleTappedOverlay:) forControlEvents:UIControlEventValueChanged];
+[itemSwitch3 setOnTintColor:[UIColor whiteColor]];
+[self.scrollView3 addSubview:itemSwitch3];
+
+yOffset3 += itemHeight3;
+
+
+```
+
+<b> Add overlay view: </b>
+```obj-c
+Menu *newmenu;
+newmenu = [[Menu alloc] initWithFrame:CGRectMake(menuX, menuY, menuWidth, menuHeight)];
+newmenu.titleLabel.text = @"remember me";
+newmenu.footerLabel.text = @"ios dev";
+[newmenu.scrollView3.subviews.lastObject setOn:YES animated:NO];
+newmenu.scrollView3.hidden = NO;
+
+TextFieldView *textFieldView = [[TextFieldView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+textFieldView.userInteractionEnabled = YES;
+textFieldView.backgroundColor = [UIColor clearColor];
+[textFieldView addSubview:newmenu];
+[keyWindow addSubview:textFieldView];
 ```
 
 ### Credits:
