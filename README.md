@@ -5,8 +5,11 @@
 <div style="text-align: center;">
 <b>Sample UI of the Menu:</b><br>
 
-<img src="https://github.com/ioscoderr/iosmodmenu/blob/main/IMG_0549.PNG">
-<img src="https://github.com/ioscoderr/iosmodmenu/blob/main/IMG_0550.PNG">
+<div style="display: flex; justify-content: center;">
+    <img src="https://github.com/ioscoderr/iosmodmenu/blob/main/IMG_0549.PNG" style="max-width: 300px; margin: 0 10px;">
+    <img src="https://github.com/ioscoderr/iosmodmenu/blob/main/IMG_0550.PNG" style="max-width: 300px; margin: 0 10px;">
+</div>
+
 </div>
 
 <br>
