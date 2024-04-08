@@ -1,9 +1,15 @@
 #import <UIKit/UIKit.h>
+#import "offss.h"
+
+
 
 @interface Menu : UIView
 {
     
 }
+extern Menu *menu;
+
+
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *footerLabel;
 @property (nonatomic, strong) UIScrollView *currentScrollView;
